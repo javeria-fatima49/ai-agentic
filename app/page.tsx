@@ -1,101 +1,122 @@
-import Image from "next/image";
+"use client"
+import { Bot, Menu } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import Typewriter from 'typewriter-effect';
+import { Button } from "@/components/ui/button";
+import Features from "@/components/features";
+import AISolutions from "@/components/solution";
+import Pricing from "@/components/pricing";
+import ContactForm from "@/components/contact";
+import Footer from "@/components/footer";
+import Technology from "@/components/technology";
 
-export default function Home() {
+export default function Page() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-black text-white ">
+      <header className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-sm border-b border-white/10 px-56">
+        <div className="h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2 ">
+            <Bot className="w-8 h-8 text-purple-500 flex items-center " />
+            <span className="text-white font-semibold text-lg ">Agentia World</span>
+          </Link>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            className="md:hidden text-white"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <Menu className="w-6 h-6" />
+          </button>
+
+          <nav className={`absolute md:static top-16 left-0 text-sm w-full md:w-auto bg-black md:bg-transparent flex flex-col md:flex-row items-start md:space-x-8 space-y-4 md:space-y-0 p-4 md:p-0 transition-all duration-300 ${menuOpen ? "block" : "hidden md:flex"}`}>
+            <Link href="#features" className="text-gray-300 hover:text-white pt-2 transition-colors">
+              Features
+            </Link>
+            <Link href="#technology" className="text-gray-300 hover:text-white pt-2 transition-colors">
+              Technology
+            </Link>
+            <Link href="#agents" className="text-gray-300 hover:text-white pt-2 transition-colors">
+              Agents
+            </Link>
+            <Link href="#pricing" className="text-gray-300 hover:text-white pt-2 transition-colors">
+              Pricing
+            </Link>
+            <Link href="#contact" className="text-gray-300 hover:text-white pt-2 transition-colors">
+              Contact
+            </Link>
+            <Button className="sm:-ml-72 bg-gradient-to-r from-purple-600 to-blue-600 duration-300 transform hover:scale-105 text-white">
+              Launch Console
+            </Button>
+          </nav>
+        </div>
+      </header>
+
+      <main className="w-full flex flex-col items-center justify-between  px-6 sm:px-8 lg:px-12 pt-32 pb-20 text-center">
+        <div className="max-w-4xl space-y-8 mx-auto bg-gradient-to-b from-black via-black to-purple-900/20 pt-32">
+          <div className="inline-block ">
+            <div className="bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-1.5 text-sm text-purple-300">
+              POWERED BY ADVANCED AI
+            </div>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight sm:leading-snug">
+            <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+              Enterprise AI Agents
+            </span>
+            <br />
+            <span className="text-white">for the Future</span>
+          </h1>
+
+          <div className="max-w-2xl mx-auto mt-12 bg-zinc-900/50 border border-white/10 rounded-lg p-4">
+            <div className="flex items-center space-x-3 mb-4">
+              <Bot className="w-8 h-8 text-purple-500" />
+              <div className="bg-zinc-800/90 px-4 py-4">
+              <Typewriter 
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("Hello! I'm your AI agent. How can I enhance your business today?")
+                  .pauseFor(500)
+                  .deleteAll()
+                  .typeString("I can help optimize your workflows with neural networks.")
+                  .pauseFor(500)
+                  .typeString("Let me assist you with advanced data analytics.")
+                  .pauseFor(500)
+                  .deleteAll()
+                  .typeString("Would you like to explore our AI integration solutions?")
+                  .pauseFor(500)
+                  .deleteAll()
+                  .start();
+              }}
+              options={{
+                loop: true,
+                cursor: "|",
+              }}
+              
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            </div>
+         </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(147,51,234,0.5)] text-white px-6 py-6 sm:px-8 sm:py-6 text-lg w-full sm:w-auto">
+              Deploy Your AI Agent
+              <span className="ml-2">→</span>
+            </Button>
+            <button className="border border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 px-6 py-4 sm:px-8 sm:py-4 text-lg w-full sm:w-auto rounded-lg">
+              Watch Demo
+            </button>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Technology />
+      <Features />
+      <AISolutions />
+      <Pricing />
+      <ContactForm />
+      <Footer />
     </div>
   );
 }
