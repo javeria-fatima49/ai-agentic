@@ -1,7 +1,10 @@
 import { Globe, Server, Shield } from "lucide-react"
 interface SolutionCard {
   title: string;
-  links: string[];
+  // links: string[];
+  description:String;
+  icon:any;
+
 }
 const SolutionCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
   <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-6 hover:bg-zinc-800/50 transition-colors">
