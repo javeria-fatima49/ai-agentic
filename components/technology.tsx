@@ -1,5 +1,9 @@
 import { Brain, Cpu, Code, Globe, } from "lucide-react"
-const FeatureCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
+interface TechnologyCard {
+  title: string;
+  links: string[];
+}
+const TechnologyCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
     <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-6 hover:bg-zinc-800/50 transition-colors">
       <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
         <Icon className="w-6 h-6 text-white" />
@@ -22,18 +26,18 @@ export default function Technology(){
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          <FeatureCard
+          <TechnologyCard
             icon={Brain}
             title="Neural Networks"
             description="Advanced neural architectures for complex decision making"
           />
-          <FeatureCard
+          <TechnologyCard
             icon={Cpu}
             title="Deep Learning"
             description="Sophisticated deep learning models for pattern recognition"
           />
-          <FeatureCard icon={Code} title="Advanced ML" description="Cutting-edge machine learning algorithms" />
-          <FeatureCard
+          <TechnologyCard icon={Code} title="Advanced ML" description="Cutting-edge machine learning algorithms" />
+          <TechnologyCard
             icon={Globe}
             title="Global Scale"
             description="Distributed AI processing across global networks"
