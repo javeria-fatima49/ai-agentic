@@ -1,9 +1,8 @@
 import { Globe, Server, Shield } from "lucide-react"
 interface SolutionCard {
   title: string;
-  // links: string[];
   description:String;
-  icon:any;
+  icon: React.ComponentType<{ className?: string }>;
 
 }
 const SolutionCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
