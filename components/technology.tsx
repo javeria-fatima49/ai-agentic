@@ -1,10 +1,10 @@
 import { Brain, Cpu, Code, Globe, } from "lucide-react"
-interface TechnologyCard {
+interface TechnologyCardProps {
   title: string;
   description:String;
   icon: React.ComponentType<{ className?: string }>;
 }
-const TechnologyCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
+const TechnologyCard = ({ icon: Icon, title, description }: TechnologyCardProps) => (
     <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-6 hover:bg-zinc-800/50 transition-colors">
       <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
         <Icon className="w-6 h-6 text-white" />
