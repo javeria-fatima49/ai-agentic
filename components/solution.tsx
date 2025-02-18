@@ -2,7 +2,7 @@ import React from "react";
 import { Globe, Server, Shield } from "lucide-react"
 interface SolutionCardProps {
   title: string;
-  description:String;
+  description:string;
   icon: React.ComponentType<{ className?: string }>;
 
 }

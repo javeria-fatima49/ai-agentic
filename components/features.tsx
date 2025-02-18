@@ -2,7 +2,7 @@ import React from "react";
 import { Brain, MessageSquare, Zap, Shield } from "lucide-react"
 interface FeatureCardProps {
   title: string;
-  description:String;
+  description:string;
   icon: React.ComponentType<{ className?: string }>;
 }
 const FeatureCard = ({ icon: Icon, title, description }: FeatureCardProps) => (
