@@ -50,8 +50,7 @@
 // }
 
 
-
-
+import React from "react";
 import { Brain, Cpu, Code, Globe } from "lucide-react";
 
 interface TechnologyCardProps {
