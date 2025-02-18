@@ -1,10 +1,11 @@
+import React from "react";
 import { Brain, MessageSquare, Zap, Shield } from "lucide-react"
-interface FeatureCard {
+interface FeatureCardProps {
   title: string;
   description:String;
   icon: React.ComponentType<{ className?: string }>;
 }
-const FeatureCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
+const FeatureCard = ({ icon: Icon, title, description }: FeatureCardProps) => (
   <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-6 hover:bg-zinc-800/50 transition-colors">
     <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
       <Icon className="w-6 h-6 text-white" />
